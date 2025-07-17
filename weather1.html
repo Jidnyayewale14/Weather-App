@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background: linear-gradient(to right, #83a4d4, #b6fbff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .weather-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+    .temp {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .weather-icon {
+      width: 80px;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="weather-card text-center">
+    <h2 class="mb-4">Weather App</h2>
+    <form id="weatherForm" class="mb-4">
+      <div class="input-group">
+        <input
+          type="text"
+          id="cityInput"
+          class="form-control"
+          placeholder="Enter city"
+          required
+        />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+    <div id="weatherResult">
+      <!-- Dummy Data (Replace with real API data later) -->
+      <img src="https://openweathermap.org/img/wn/01d.png" alt="weather" class="weather-icon mb-2" />
+      <div class="temp">27°C</div>
+      <p class="lead">Sunny</p>
+      <p>City: <strong>New York</strong></p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('weatherForm');
+    const cityInput = document.getElementById('cityInput');
+    const weatherResult = document.getElementById('weatherResult');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const city = cityInput.value.trim();
+
+      // Placeholder update (add real API logic here)
+      weatherResult.innerHTML = `
+        <img src="https://openweathermap.org/img/wn/03d.png" alt="weather" class="weather-icon mb-2" />
+        <div class="temp">25°C</div>
+        <p class="lead">Cloudy</p>
+        <p>City: <strong>${city}</strong></p>
+      `;
+    });
+  </script>
+</body>
+</html>
